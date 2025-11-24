@@ -1,5 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SintabyMarie Jewelry</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Palette based on the provided image
+            brand: {
+              dark: '#1F0954',   // Dark Indigo
+              main: '#4B0082',   // Indigo
+              accent: '#8A2BE2', // Blue-Violet
+              light: '#9457EB',  // Lavender Indigo
+              neon: '#7B00FF',   // Neon Indigo
+              bg: '#FDFBFF',     // Very light tint for background
+            }
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', 'cursive'],
+            sans: ['"Lato"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          },
+          animation: {
+            fadeIn: 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Utilities */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,49 +79,52 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              // Palette based on the provided image
-              brand: {
-                dark: '#1F0954',   // Dark Indigo
-                main: '#4B0082',   // Indigo
-                accent: '#8A2BE2', // Blue-Violet
-                light: '#9457EB',  // Lavender Indigo
-                neon: '#7B00FF',   // Neon Indigo
-                bg: '#FDFBFF',     // Very light tint for background
-              }
-            },
-            fontFamily: {
-              script: ['"Great Vibes"', 'cursive'],
-              sans: ['"Lato"', 'sans-serif'],
-              serif: ['"Playfair Display"', 'serif'],
-            },
-            keyframes: {
-              fadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(10px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              }
-            },
-            animation: {
-              fadeIn: 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            // Palette based on the provided image
+            brand: {
+              dark: '#1F0954',   // Dark Indigo
+              main: '#4B0082',   // Indigo
+              accent: '#8A2BE2', // Blue-Violet
+              light: '#9457EB',  // Lavender Indigo
+              neon: '#7B00FF',   // Neon Indigo
+              bg: '#FDFBFF',     // Very light tint for background
             }
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', 'cursive'],
+            sans: ['"Lato"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(10px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            }
+          },
+          animation: {
+            fadeIn: 'fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1)',
           }
         }
       }
-    </script>
-    <style>
-      /* Custom Utilities */
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
-      .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-      }
-    </style>
+    }
+  </script>
+  <style>
+    /* Custom Utilities */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -65,10 +135,13 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-brand-bg text-gray-900 antialiased">
-    <div id="root"></div>
-  <script type="module" src="/index.tsx"></script>
+
+<body class="bg-brand-bg text-gray-900 antialiased">
+  <div id="root"></div>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <!-- Entry point for the application -->
+  <script type="module" src="./index.tsx"></script>
 </body>
+
 </html>
