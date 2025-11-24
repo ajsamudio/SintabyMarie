@@ -152,41 +152,60 @@ const Header: React.FC = () => {
                 </div>
               )}
             </div>
-                className = "bg-transparent border-none focus:outline-none text-base ml-2 w-full text-white placeholder-gray-300"
-            />
+          ))}
+        </nav>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[60] bg-brand-dark/95 backdrop-blur-md text-white flex flex-col p-6 md:hidden overflow-y-auto min-h-screen">
+          <div className="flex justify-end">
+            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-white hover:text-brand-light transition-colors">
+              <X size={32} />
+            </button>
+          </div>
+          <div className="mt-8 flex flex-col space-y-6 items-center w-full pb-10">
+            {/* Mobile Search */}
+            <div className="flex items-center bg-white/10 rounded-full px-4 py-2 w-full max-w-xs mb-4">
+              <Search size={20} className="text-gray-300" />
+              <input
+                type="text"
+                placeholder="Search..."
+                className="bg-transparent border-none focus:outline-none text-base ml-2 w-full text-white placeholder-gray-300"
+              />
             </div>
 
-      {navItems.map((item) => (
-        <div key={item.label} className="flex flex-col items-center w-full">
-          <a
-            href={item.href}
-            onClick={() => !item.children && setIsMobileMenuOpen(false)}
-            className={`text-xl tracking-widest uppercase font-sans ${item.isSpecial ? 'text-red-400 font-bold' : 'text-white'
-              }`}
-          >
-            {item.label}
-          </a>
-          {/* Simple list for mobile sub-items */}
-          {item.children && (
-            <div className="flex flex-col items-center mt-3 space-y-2">
-              {item.children.map(child => (
+            {navItems.map((item) => (
+              <div key={item.label} className="flex flex-col items-center w-full">
                 <a
-                  key={child.label}
-                  href={child.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-sm text-gray-300 hover:text-white font-light"
+                  href={item.href}
+                  onClick={() => !item.children && setIsMobileMenuOpen(false)}
+                  className={`text-xl tracking-widest uppercase font-sans ${item.isSpecial ? 'text-red-400 font-bold' : 'text-white'
+                    }`}
                 >
-                  {child.label}
+                  {item.label}
                 </a>
-              ))}
-            </div>
-          )}
+                {/* Simple list for mobile sub-items */}
+                {item.children && (
+                  <div className="flex flex-col items-center mt-3 space-y-2">
+                    {item.children.map(child => (
+                      <a
+                        key={child.label}
+                        href={child.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="text-sm text-gray-300 hover:text-white font-light"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-        </div >
       )}
-    </header >
+    </header>
   );
 };
 
