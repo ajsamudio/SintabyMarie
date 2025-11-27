@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import FadeIn from './FadeIn';
 import { Product } from '../types';
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -55,15 +56,17 @@ const ProductCarousel: React.FC = () => {
     >
       <div className="container mx-auto px-2 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-6 md:mb-8">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left mb-4 md:mb-0">
+          <FadeIn className="flex flex-col items-center md:items-start text-center md:text-left mb-4 md:mb-0">
             <h3 className="font-serif text-3xl md:text-4xl text-brand-dark mb-2">Best Sellers</h3>
             <div className="h-1 w-20 bg-brand-accent"></div>
-          </div>
+          </FadeIn>
 
           {/* Desktop View All Link */}
-          <a href="#all" className="hidden md:flex items-center text-brand-main hover:text-brand-dark transition-colors text-sm font-bold uppercase tracking-wider">
-            View All <ArrowRight size={16} className="ml-2" />
-          </a>
+          <FadeIn direction="left" delay={200}>
+            <a href="#all" className="hidden md:flex items-center text-brand-main hover:text-brand-dark transition-colors text-sm font-bold uppercase tracking-wider">
+              View All <ArrowRight size={16} className="ml-2" />
+            </a>
+          </FadeIn>
         </div>
 
         {/* Carousel Content Wrapper */}
@@ -91,10 +94,11 @@ const ProductCarousel: React.FC = () => {
             ref={scrollContainerRef}
             className="flex overflow-x-auto gap-4 md:gap-6 pb-6 pt-2 px-1 no-scrollbar snap-x snap-mandatory scroll-smooth"
           >
-            {products.map((product) => (
-              <div
+            {products.map((product, index) => (
+              <FadeIn
                 key={product.id}
                 className="flex-shrink-0 w-44 md:w-64 snap-start group/item"
+                delay={index * 50} // Stagger effect
               >
                 <div className="relative overflow-hidden aspect-[4/5] bg-gray-100 mb-3 cursor-pointer shadow-sm hover:shadow-lg transition-all duration-300 rounded-sm">
                   <img
@@ -113,7 +117,7 @@ const ProductCarousel: React.FC = () => {
                   <h4 className="font-serif text-sm md:text-lg text-brand-dark group-hover/item:text-brand-accent transition-colors cursor-pointer truncate">{product.name}</h4>
                   <p className="text-gray-500 font-sans font-light text-xs md:text-base">${product.price}.00</p>
                 </div>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
